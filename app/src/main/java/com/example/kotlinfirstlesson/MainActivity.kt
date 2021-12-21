@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val myTag: String = "myLog"
+        var voice =""
 
         val cat = Animal("Cat", 5, "Barsik")
         val dog = cat.copy("Dog", 7, "Tuzik")
@@ -28,7 +29,13 @@ class MainActivity : AppCompatActivity() {
         val animalArray = arrayOf<Animal>(cat, dog, horse)
 
         for (i in 0 until animalArray.size) {
-            Log.d(myTag, animalArray[i].kind + "'s name is " + animalArray[i].name)
+            voice = when (animalArray[i].kind){
+                "Cat" -> "Meow"
+                "Dog" -> "Gau-Gau"
+                "Horse" -> "Igo-go"
+                else -> ""
+            }
+            Log.d(myTag, animalArray[i].kind + "'s name is " + animalArray[i].name + ". And it says \"" + voice + "\"")
         }
 
         initViews()
