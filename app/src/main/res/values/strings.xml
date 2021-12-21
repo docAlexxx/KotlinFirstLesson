@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">KotlinFirstLesson</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
+    <string name="kind_of_animal">Kind of animal</string>
+    <string name="name">Name</string>
+    <string name="age">Age</string>
 </resources>
