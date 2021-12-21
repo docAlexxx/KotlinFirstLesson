@@ -3,8 +3,10 @@ package com.example.kotlinfirstlesson
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     lateinit var buttonPrev: Button
@@ -30,6 +32,40 @@ class MainActivity : AppCompatActivity() {
         }
 
         initViews()
+
+        buttonPrev.setOnClickListener {
+            if (currentIndex > 0) {
+                currentIndex--
+                etKind.setText(animalArray[currentIndex].kind)
+                etName.setText(animalArray[currentIndex].name)
+                etAge.setText(animalArray[currentIndex].age.toString())
+            } else {
+                Toast.makeText(
+                    applicationContext,
+                    "there isn't any previous animal",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
+
+        buttonNext.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(view: View?) {
+                if (currentIndex < animalArray.size - 1) {
+                    currentIndex++
+                    etKind.setText(animalArray[currentIndex].kind)
+                    etName.setText(animalArray[currentIndex].name)
+                    etAge.setText(animalArray[currentIndex].age.toString())
+                } else {
+                    Toast.makeText(
+                        applicationContext,
+                        "there isn't any next animal",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+
+        })
+
 
     }
 
